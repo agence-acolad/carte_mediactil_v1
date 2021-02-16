@@ -5,6 +5,10 @@
 {% block body %}
     <h1>Produit index</h1>
 
+    {% set uber %}
+        <img src="{{ asset('images/ubereats.png') }}" style="width: 75px">
+    {% endset %}
+
     <table class="table">
         <thead>
             <tr>
@@ -25,11 +29,10 @@
                 {# <td>{{ produit.categories.nom }}</td> #}
                 <td>{{ produit.prix }}</td>
                 <td>{{ produit.photo }}</td>
-                <td>{{ produit.ubereats ? 'a' : 'b' }}</td>
-                <td>{{ produit.deliveroo ? 'Yes' : 'No' }}</td>
+                <td>{{ produit.ubereats ? uber : 'NON' }}</td>
+                <td>{{ produit.deliveroo ? 'Yes' : 'NON' }}</td>
                 <td>
-                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                    <a class="btn btn-info" href="{{ path('produit_edit', {'id': produit.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
