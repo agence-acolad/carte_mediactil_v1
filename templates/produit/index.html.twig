@@ -9,6 +9,10 @@
         <img src="{{ asset('images/ubereats.png') }}" style="width: 75px">
     {% endset %}
 
+    {% set deliveroo %}
+        <img src="{{ asset('images/deliveroo.png') }}" style="width: 75px">
+    {% endset %}
+
     <table class="table">
         <thead>
             <tr>
@@ -30,7 +34,7 @@
                 <td>{{ produit.prix }}</td>
                 <td>{{ produit.photo }}</td>
                 <td>{{ produit.ubereats ? uber : 'NON' }}</td>
-                <td>{{ produit.deliveroo ? 'Yes' : 'NON' }}</td>
+                <td>{{ produit.deliveroo ? deliveroo : 'NON' }}</td>
                 <td>
                     <a class="btn btn-info" href="{{ path('produit_edit', {'id': produit.id}) }}">Éditer</a>
                 </td>
