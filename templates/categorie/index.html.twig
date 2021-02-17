@@ -3,31 +3,35 @@
 {% block title %}Liste des catégories{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une catégorie de produit</h1>
+    <h1 class="mt-4">Ajouter une catégorie de produit</h1>
+    <div class="container mt-4">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nom</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for categorie in categories %}
+                <tr>
+                    <td>{{ categorie.nom }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{{ path('categorie_show', {'id': categorie.id}) }}">Voir</a>
+                        <a class="btn btn-info" href="{{ path('categorie_edit', {'id': categorie.id}) }}">Éditer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune catégorie créée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center m-4">
+            <a class="btn btn-success" href="{{ path('categorie_new') }}">Ajouter une catégorie</a>
+        </div>
+    </div>
+    <a class="btn btn-primary" href="{{ path('produit_index') }}">Modifier les produits</a>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for categorie in categories %}
-            <tr>
-                <td>{{ categorie.nom }}</td>
-                <td>
-                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}">Voir</a>
-                    <a href="{{ path('categorie_edit', {'id': categorie.id}) }}">Éditer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Aucune catégorie créée</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a class="btn btn-success" href="{{ path('categorie_new') }}">Ajouter une catégorie</a>
 {% endblock %}
