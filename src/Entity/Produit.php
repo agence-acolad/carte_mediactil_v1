@@ -39,12 +39,13 @@ class Produit
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string|null
      */
     private $photo;
 
     /**
      * @Vich\UploadableField(mapping="featured_images", fileNameProperty="photo")
-     * @var File
+     * @var File|null
      */
     private $imageFile;
 
@@ -132,6 +133,9 @@ class Produit
         return $this;
     }
 
+    /**
+     * @param null|File $imageFile
+     */
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
@@ -141,6 +145,10 @@ class Produit
         }
     }
     
+    /**
+     * @return null|File
+     */
+
     public function getImageFile()
     {
         return $this->imageFile;

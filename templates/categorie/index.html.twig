@@ -7,8 +7,8 @@
     <div class="container mt-4">
         <table class="table">
             <thead class="thead-dark">
-                <tr>
-                    <th>Nom</th>
+                <tr class="text-center">
+                    <th >Nom</th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -16,7 +16,7 @@
             {% for categorie in categories %}
                 <tr>
                     <td>{{ categorie.nom }}</td>
-                    <td>
+                    <td class="d-flex justify-content-around">
                         <a class="btn btn-warning" href="{{ path('categorie_show', {'id': categorie.id}) }}">Voir</a>
                         <a class="btn btn-info" href="{{ path('categorie_edit', {'id': categorie.id}) }}">Éditer</a>
                     </td>
