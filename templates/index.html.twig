@@ -3,6 +3,10 @@
 {% block title %}Bienvenue{% endblock %}
 
 {% block body %}
+    {% block menu %}
+        {% include "components/navbar.html.twig" %}
+    {% endblock %}
+
 {# Suggestion & Prix menu #}
 <div class="container-fluid mt-5">
     <div class="row ">

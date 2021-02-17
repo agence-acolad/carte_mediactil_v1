@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Categorie;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProduitRepository;
 use Doctrine\Common\Collections\Collection;

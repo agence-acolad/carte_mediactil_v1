@@ -3,6 +3,9 @@
 {% block title %}Liste des catégories{% endblock %}
 
 {% block body %}
+    {% block menu %}
+            {% include "components/navbar-admin.html.twig" %}
+    {% endblock %}
     <h1 class="mt-4">Ajouter une catégorie de produit</h1>
     <div class="container mt-4">
         <table class="table">
