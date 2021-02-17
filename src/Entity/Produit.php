@@ -6,9 +6,12 @@ use App\Repository\ProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ProduitRepository::class)
+ * @Vich\Uploadable
  */
 class Produit
 {
@@ -40,6 +43,12 @@ class Produit
     private $photo;
 
     /**
+     * @Vich\UploadableField(mapping="featured_images", fileNameProperty="photo")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $ubereats;
@@ -54,9 +63,20 @@ class Produit
      */
     private $categories;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updated_at;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 
     public function getId(): ?int
@@ -112,6 +132,20 @@ class Produit
         return $this;
     }
 
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image) {
+            $this->updated_at = new \DateTime('now');
+        }
+    }
+    
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
     public function getUbereats(): ?bool
     {
         return $this->ubereats;
@@ -156,6 +190,18 @@ class Produit
     public function removeCategory(Categorie $category): self
     {
         $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }

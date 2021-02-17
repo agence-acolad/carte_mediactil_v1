@@ -22,17 +22,18 @@
                 <th>Photo</th>
                 <th>Ubereats</th>
                 <th>Deliveroo</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for produit in produits %}
             <tr>
-                <td>{{ produit.nom }}</td>
-                <td>{{ produit.description }}</td>
+                <td>{{ produit.nom| raw}}</td>
+                <td>{{ produit.description| raw}}</td>
                 {# <td>{{ produit.categories.nom }}</td> #}
-                <td>{{ produit.prix }}</td>
-                <td>{{ produit.photo }}</td>
+                <td>{{ produit.prix| raw}}</td>
+                <td><img src="{{asset('uploads/images/featured/' ~ produit.photo )}}" style="width: 90px;"></td>
+                {# <td>{{ produit.photo }}</td> #}
                 <td>{{ produit.ubereats ? uber : 'NON' }}</td>
                 <td>{{ produit.deliveroo ? deliveroo : 'NON' }}</td>
                 <td>
@@ -41,11 +42,12 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Aucun produit trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('produit_new') }}">Ajouter un nouveau produit</a>
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-success" href="{{ path('produit_new') }}">Ajouter un nouveau produit</a>
+    </div>
 {% endblock %}
