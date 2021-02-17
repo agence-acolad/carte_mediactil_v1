@@ -25,6 +25,7 @@ class ProduitType extends AbstractType
             ->add('prix')
             // ->add('photo')
             ->add('imageFile', FileType::class, [
+                'required' => false,
                 'label' => "Choisir l'image du produit",
                 'attr' => [
                     'placeholder' => "Choisissez votre image"
