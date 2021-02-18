@@ -29,9 +29,15 @@ class Categorie
      */
     private $produits;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Onglet::class, mappedBy="ongletCategories")
+     */
+    private $onglets;
+
     public function __construct()
     {
         $this->produits = new ArrayCollection();
+        $this->onglets = new ArrayCollection();
     }
 
     public function __toString()
@@ -78,6 +84,33 @@ class Categorie
     {
         if ($this->produits->removeElement($produit)) {
             $produit->removeCategory($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Onglet[]
+     */
+    public function getOnglets(): Collection
+    {
+        return $this->onglets;
+    }
+
+    public function addOnglet(Onglet $onglet): self
+    {
+        if (!$this->onglets->contains($onglet)) {
+            $this->onglets[] = $onglet;
+            $onglet->addOngletCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOnglet(Onglet $onglet): self
+    {
+        if ($this->onglets->removeElement($onglet)) {
+            $onglet->removeOngletCategory($this);
         }
 
         return $this;

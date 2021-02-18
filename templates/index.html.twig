@@ -12,22 +12,11 @@
     <div class="row ">
         <div class="col-6 d-flex align-items-stretch justify-content-center">
             <div class="card text-dark bg-light mb-3 w-100" style="">
-                <div class="card-header">Suggestion du jour</div>
+            {% for produit in produits %}   
+                {# <div class="card-header">{{produit.categories.nom}}</div> #}
                 <div class="card-body">
-                    <h5 class="card-title">- 280 Moutarde Grande frite Icetea</h5>
-                    <h5 class="card-title">- Pizza forestière 33cm</h5>
-                    <h5 class="card-title">- Boite de 20 nuggets</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 d-flex align-items-stretch justify-content-center">
-            <div class="card text-dark bg-light mb-3 w-100" style="">
-                <div class="card-header"> Menu du Cosmo</div>
-                <div class="card-body">
-                    <h5 class="card-title mx-auto">Entrée + Plat OU Plat + Dessert</h5>
-                    <p class="card-text mx-auto">29,90€</p>
-                    <h5 class="card-title mx-auto">Entrée + Plat + Dessert</h5>
-                    <p class="card-text mx-auto">36,90€</p>
+                <h5 class="card-title">- {{produit.nom}}</h5><p>{{produit.prix}}</p>
+            {% endfor %}
                 </div>
             </div>
         </div>
@@ -55,5 +44,5 @@
         </div>
     </div>
 </div>
-
+{% include 'components/card-basic.html.twig' %}
 {% endblock %}
