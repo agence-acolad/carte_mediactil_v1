@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
     {{ form_start(form) }}
 
         <div class="row">{{ form_row(form.nom) }}</div>
@@ -9,10 +9,7 @@
         <div class="row">{{ form_row(form.deliveroo) }}</div>
         <div class="row">{{ form_row(form.categories) }}</div>
         <div class="d-flex justify-content-center mt-3">
-            <button class="btn">{{ button_label|default('Save') }}</button>
+            <button class="btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
         </div>
-        {# {% if imgform == null %}
-            {{imgform == "aaa" }}
-        {% endif %} #}
-    {{ form_end(form) }}
+        {{ form_end(form) }}
 </div>

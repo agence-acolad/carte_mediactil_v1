@@ -17,11 +17,8 @@ class ProduitType extends AbstractType
         $builder
             ->add('nom', TextType::class,[
                 'label' => "Nom du Produit",
-                'attr' => [
-                    'placeholder' => "Entrez le nom du produit ici"
-                ]
             ])
-            ->add('description', CKEditorType::class)
+            ->add('description', TextType::class)
             ->add('prix')
             // ->add('photo')
             ->add('imageFile', FileType::class, [

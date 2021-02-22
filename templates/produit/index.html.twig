@@ -6,7 +6,7 @@
     {% block menu %}
             {% include "components/navbar-admin.html.twig" %}
     {% endblock %}
-    <h1>Produit index</h1>
+    <h1 class="mt-5 text-center">Liste des produits</h1>
 
     {% set uber %}
         <img src="{{ asset('images/ubereats.png') }}" style="width: 75px">
@@ -15,41 +15,42 @@
     {% set deliveroo %}
         <img src="{{ asset('images/deliveroo.png') }}" style="width: 75px">
     {% endset %}
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Prix</th>
-                <th>Photo</th>
-                <th>Ubereats</th>
-                <th>Deliveroo</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for produit in produits %}
-            <tr>
-                <td>{{ produit.nom| raw}}</td>
-                <td>{{ produit.description| raw}}</td>
-                {# <td>{{ produit.categories.nom }}</td> #}
-                <td>{{ produit.prix| raw}}</td>
-                <td><img src="{{asset('uploads/images/featured/' ~ produit.photo )}}" style="width: 90px;"></td>
-                {# <td>{{ produit.photo }}</td> #}
-                <td>{{ produit.ubereats ? uber : 'NON' }}</td>
-                <td>{{ produit.deliveroo ? deliveroo : 'NON' }}</td>
-                <td>
-                    <a class="btn btn-info" href="{{ path('produit_edit', {'id': produit.id}) }}">Éditer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">Aucun produit trouvé</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Photo</th>
+                    <th>Ubereats</th>
+                    <th>Deliveroo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for produit in produits %}
+                <tr>
+                    <td>{{ produit.nom| raw}}</td>
+                    <td>{{ produit.description| raw}}</td>
+                    {# <td>{{ produit.categories.nom }}</td> #}
+                    <td>{{ produit.prix| raw}}</td>
+                    <td><img src="{{asset('uploads/images/featured/' ~ produit.photo )}}" style="width: 90px;"></td>
+                    {# <td>{{ produit.photo }}</td> #}
+                    <td>{{ produit.ubereats ? uber : 'NON' }}</td>
+                    <td>{{ produit.deliveroo ? deliveroo : 'NON' }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{{ path('produit_edit', {'id': produit.id}) }}">Éditer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">Aucun produit trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <div class="d-flex justify-content-center mb-4">
         <a class="btn btn-success" href="{{ path('produit_new') }}">Ajouter un nouveau produit</a>
     </div>

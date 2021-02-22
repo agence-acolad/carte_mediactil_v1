@@ -6,8 +6,8 @@
     {% block menu %}
             {% include "components/navbar-admin.html.twig" %}
     {% endblock %}
-    <h1 class="mt-4">Ajouter une catégorie de produit</h1>
-    <div class="container mt-4">
+    <h1 class="mt-5 text-center">Ajouter une catégorie de produit</h1>
+    <div class="container mt-5">
         <table class="table">
             <thead class="thead-dark">
                 <tr class="text-center">
@@ -31,7 +31,7 @@
             {% endfor %}
             </tbody>
         </table>
-        <div class="d-flex justify-content-center m-4">
+        <div class="d-flex justify-content-center m-5">
             <a class="btn btn-success" href="{{ path('categorie_new') }}">Ajouter une catégorie</a>
         </div>
     </div>
