@@ -29,6 +29,7 @@ class MainController extends AbstractController
         return $this->render('index.html.twig', [
             'produits' => $repoProduit->findAll(),
             'categories' => $categories,
+            'suggestion' => $repoC->findOneBy(['id'=> 5 ])
            
         ]);
     }
