@@ -8,20 +8,22 @@
     {% endblock %}
 
 {# Suggestion & Prix menu #}
-<div class="container-fluid mt-5">
-    <div class="row ">
-        <div class="col-6 d-flex align-items-stretch justify-content-center">
-            <div class="card text-dark bg-light mb-3 w-100" style="">
-            {% for produit in produits %}   
-                {# <div class="card-header">{{produit.categories.nom}}</div> #}
-                <div class="card-body">
-                <h5 class="card-title">- {{produit.nom}}</h5><p>{{produit.prix}}</p>
-            {% endfor %}
+{% for categorie in categories %} 
+    <div class="container-fluid mt-5">
+        <div class="row ">
+            <div class="col-6 d-flex align-items-stretch justify-content-center">
+                <div class="card text-dark bg-light mb-3 w-100" style="">
+                    <div class="card-header">{{categorie.nom}}</div>
+                        <div class="card-body">
+                    {% for produit in cat.produits %}
+                        <h5 class="card-title">- {{cat.produit.nom}}</h5><p>{{cat.produit.prix}}</p>
+                    {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+{% endfor %}
 
 {# Apéro #}
 <div class="container-fluid mt-1">
