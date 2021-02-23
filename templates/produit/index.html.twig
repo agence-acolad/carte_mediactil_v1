@@ -25,6 +25,7 @@
                     <th>Photo</th>
                     <th>Ubereats</th>
                     <th>Deliveroo</th>
+                    <th>Catégories</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -33,12 +34,11 @@
                 <tr>
                     <td>{{ produit.nom| raw}}</td>
                     <td>{{ produit.description| raw}}</td>
-                    {# <td>{{ produit.categories.nom }}</td> #}
                     <td>{{ produit.prix| raw}}</td>
                     <td><img src="{{asset('uploads/images/featured/' ~ produit.photo )}}" style="width: 90px;"></td>
-                    {# <td>{{ produit.photo }}</td> #}
                     <td>{{ produit.ubereats ? uber : 'NON' }}</td>
                     <td>{{ produit.deliveroo ? deliveroo : 'NON' }}</td>
+                    <td>{{ produit.categories|length }}</td>
                     <td>
                         <a class="btn btn-info" href="{{ path('produit_edit', {'id': produit.id}) }}">Éditer</a>
                     </td>

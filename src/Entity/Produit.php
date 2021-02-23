@@ -71,6 +71,46 @@ class Produit
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nomEn;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nomEs;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nomDe;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nomIt;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $descEn;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $descEs;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $descDe;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $descIt;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -217,6 +257,102 @@ class Produit
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getNomEn(): ?string
+    {
+        return $this->nomEn;
+    }
+
+    public function setNomEn(?string $nomEn): self
+    {
+        $this->nomEn = $nomEn;
+
+        return $this;
+    }
+
+    public function getNomEs(): ?string
+    {
+        return $this->nomEs;
+    }
+
+    public function setNomEs(?string $nomEs): self
+    {
+        $this->nomEs = $nomEs;
+
+        return $this;
+    }
+
+    public function getNomDe(): ?string
+    {
+        return $this->nomDe;
+    }
+
+    public function setNomDe(?string $nomDe): self
+    {
+        $this->nomDe = $nomDe;
+
+        return $this;
+    }
+
+    public function getNomIt(): ?string
+    {
+        return $this->nomIt;
+    }
+
+    public function setNomIt(?string $nomIt): self
+    {
+        $this->nomIt = $nomIt;
+
+        return $this;
+    }
+
+    public function getDescEn(): ?string
+    {
+        return $this->descEn;
+    }
+
+    public function setDescEn(?string $descEn): self
+    {
+        $this->descEn = $descEn;
+
+        return $this;
+    }
+
+    public function getDescEs(): ?string
+    {
+        return $this->descEs;
+    }
+
+    public function setDescEs(?string $descEs): self
+    {
+        $this->descEs = $descEs;
+
+        return $this;
+    }
+
+    public function getDescDe(): ?string
+    {
+        return $this->descDe;
+    }
+
+    public function setDescDe(?string $descDe): self
+    {
+        $this->descDe = $descDe;
+
+        return $this;
+    }
+
+    public function getDescIt(): ?string
+    {
+        return $this->descIt;
+    }
+
+    public function setDescIt(?string $descIt): self
+    {
+        $this->descIt = $descIt;
 
         return $this;
     }

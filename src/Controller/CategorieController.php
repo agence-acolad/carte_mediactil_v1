@@ -7,6 +7,7 @@ use App\Entity\Categorie;
 use App\Form\CategorieType;
 use App\Repository\ProduitRepository;
 use App\Repository\CategorieRepository;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,6 +21,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class CategorieController extends AbstractController
 {
+
+    function translate($target, $string){
+        $tr = new GoogleTranslate();
+        $tr->setSource('fr');
+        $tr->setTarget($target); 
+        $motTraduit = $tr->translate($string);
+        return $motTraduit;
+    }
+    
     /**
      * @IsGranted("ROLE_ADMIN")
      * @Route("/", name="categorie_index", methods={"GET"})
@@ -42,6 +52,21 @@ class CategorieController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // tradcution du nom 
+            $nomFr = $categorie->getNom();
+            $nomEN = $this->translate('en', $nomFr);
+            $categorie->setNomEn($nomEN);
+            $nomES = $this->translate('es', $nomFr);
+            $categorie->setNomEs($nomES);
+            $nomDE = $this->translate('de', $nomFr);
+            $categorie->setNomDe($nomDE);
+            $nomIT = $this->translate('it', $nomFr);
+            $categorie->setNomIt($nomIT);
+
+            
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($categorie);
             $entityManager->flush();
@@ -101,4 +126,6 @@ class CategorieController extends AbstractController
 
         return $this->redirectToRoute('categorie_index');
     }
+
+
 }

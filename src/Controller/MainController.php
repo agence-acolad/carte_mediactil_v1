@@ -10,6 +10,10 @@ use App\Repository\ProduitRepository;
 use Doctrine\DBAL\Tools\Dumper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Stichoza\GoogleTranslate\GoogleTranslate;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class MainController extends AbstractController
 {
@@ -34,24 +38,13 @@ class MainController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/admin", name="administration")
      */
     public function admin()
     {
         return $this->render('admin.html.twig', [
             'controller_name' => 'MainController',
-        ]);
-    }
-
-    /**
-     * @Route("/test", name="categories")
-     */
-    public function indexCat(ProduitRepository $repoP, CategorieRepository $repoC)
-    {
-        $categories= $repoC->findBy(['produits' => '']);
-        return $this->render('test.html.twig', [
-            'produits' => $repoP->findBy(['categories' => $this->$categories]),
-            'categories' => $categories
         ]);
     }
 
