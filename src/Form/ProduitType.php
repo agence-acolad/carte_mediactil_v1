@@ -2,13 +2,17 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\Produit;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProduitType extends AbstractType
 {
@@ -18,7 +22,7 @@ class ProduitType extends AbstractType
             ->add('nom', TextType::class,[
                 'label' => "Nom du Produit",
             ])
-            ->add('description', TextType::class)
+            ->add('description', TextareaType::class)
             ->add('prix')
             // ->add('photo')
             ->add('imageFile', FileType::class, [
@@ -30,7 +34,13 @@ class ProduitType extends AbstractType
             ])
             ->add('ubereats')
             ->add('deliveroo')
-            ->add('categories')
+            ->add('categories', EntityType::class, [
+                'choice_label'=> 'nom',
+                'class'=> Categorie::class,
+                'label'=>'Choisir une ou plusieurs catégories',
+                'multiple' => true,
+                'expanded' => true,
+                ])
         ;
     }
 

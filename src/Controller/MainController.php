@@ -44,16 +44,4 @@ class MainController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/test", name="categories")
-     */
-    public function indexCat(ProduitRepository $repoP, CategorieRepository $repoC)
-    {
-        $categories= $repoC->findBy(['produits' => '']);
-        return $this->render('test.html.twig', [
-            'produits' => $repoP->findBy(['categories' => $this->$categories]),
-            'categories' => $categories
-        ]);
-    }
-
 }
