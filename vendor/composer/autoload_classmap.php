@@ -91,6 +91,7 @@ return array(
     'Doctrine\\Common\\Annotations\\Annotation\\Attributes' => $vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Attributes.php',
     'Doctrine\\Common\\Annotations\\Annotation\\Enum' => $vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Enum.php',
     'Doctrine\\Common\\Annotations\\Annotation\\IgnoreAnnotation' => $vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/IgnoreAnnotation.php',
+    'Doctrine\\Common\\Annotations\\Annotation\\NamedArgumentConstructor' => $vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/NamedArgumentConstructor.php',
     'Doctrine\\Common\\Annotations\\Annotation\\Required' => $vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Required.php',
     'Doctrine\\Common\\Annotations\\Annotation\\Target' => $vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Target.php',
     'Doctrine\\Common\\Annotations\\CachedReader' => $vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations/CachedReader.php',

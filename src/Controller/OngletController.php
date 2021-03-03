@@ -5,16 +5,29 @@ namespace App\Controller;
 use App\Entity\Onglet;
 use App\Form\OngletType;
 use App\Repository\OngletRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
  * @Route("/onglet")
  */
 class OngletController extends AbstractController
 {
+
+    function translate($target, $string){
+        $tr = new GoogleTranslate();
+        $tr->setSource('fr');
+        $tr->setTarget($target); 
+        $motTraduit = $tr->translate($string);
+        return $motTraduit;
+    }
+    
     /**
      * @Route("/", name="onglet_index", methods={"GET"})
      */
@@ -35,6 +48,17 @@ class OngletController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $nomFr = $onglet->getNom();
+            $nomEN = $this->translate('en', $nomFr);
+            $onglet->setNomEn($nomEN);
+            $nomES = $this->translate('es', $nomFr);
+            $onglet->setNomEs($nomES);
+            $nomDE = $this->translate('de', $nomFr);
+            $onglet->setNomDe($nomDE);
+            $nomIT = $this->translate('it', $nomFr);
+            $onglet->setNomIt($nomIT);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($onglet);
             $entityManager->flush();

@@ -2,23 +2,33 @@
 
 namespace App\Controller;
 
-use App\Entity\Categorie;
 use App\Entity\Produit;
+use App\Entity\Categorie;
 use App\Form\ProduitType;
-use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\CategorieRepository;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/produit")
  */
 class ProduitController extends AbstractController
 {
+
+    function translate($target, $string){
+        $tr = new GoogleTranslate();
+        $tr->setSource('fr');
+        $tr->setTarget($target); 
+        $motTraduit = $tr->translate($string);
+        return $motTraduit;
+    }
+    
     /**
      * @IsGranted("ROLE_ADMIN")
      * @Route("/", name="produit_index", methods={"GET"})
@@ -41,9 +51,33 @@ class ProduitController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $nomFr = $produit->getNom();
+            $nomEN = $this->translate('en', $nomFr);
+            $produit->setNomEn($nomEN);
+            $nomES = $this->translate('es', $nomFr);
+            $produit->setNomEs($nomES);
+            $nomDE = $this->translate('de', $nomFr);
+            $produit->setNomDe($nomDE);
+            $nomIT = $this->translate('it', $nomFr);
+            $produit->setNomIt($nomIT);
+
+            $descFr = $produit->getDescription();
+            $descEN = $this->translate('en', $descFr);
+            $produit->setDescEn($descEN);
+            $descES = $this->translate('es', $descFr);
+            $produit->setDescEs($descES);            
+            $descDE = $this->translate('de', $descFr);
+            $produit->setDescDE($descDE);
+            $descIT = $this->translate('it', $descFr);
+            $produit->setDescIT($descIT);
+
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($produit);
             $entityManager->flush();
+            
 
             return $this->redirectToRoute('produit_index');
         }

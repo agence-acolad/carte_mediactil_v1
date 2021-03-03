@@ -60,6 +60,7 @@
         },
         {
             "name": "doctrine/annotations",
+<<<<<<< HEAD
             "version": "1.11.1",
             "version_normalized": "1.11.1.0",
             "source": {
@@ -71,6 +72,19 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/annotations/zipball/ce77a7ba1770462cd705a91a151b6c3746f9c6ad",
                 "reference": "ce77a7ba1770462cd705a91a151b6c3746f9c6ad",
+=======
+            "version": "1.12.1",
+            "version_normalized": "1.12.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/annotations.git",
+                "reference": "b17c5014ef81d212ac539f07a1001832df1b6d3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b17c5014ef81d212ac539f07a1001832df1b6d3b",
+                "reference": "b17c5014ef81d212ac539f07a1001832df1b6d3b",
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
                 "shasum": ""
             },
             "require": {
@@ -84,6 +98,7 @@
                 "phpstan/phpstan": "^0.12.20",
                 "phpunit/phpunit": "^7.5 || ^9.1.5"
             },
+<<<<<<< HEAD
             "time": "2020-10-26T10:28:16+00:00",
             "type": "library",
             "extra": {
@@ -91,6 +106,10 @@
                     "dev-master": "1.11.x-dev"
                 }
             },
+=======
+            "time": "2021-02-21T21:00:45+00:00",
+            "type": "library",
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
@@ -995,6 +1014,7 @@
         },
         {
             "name": "doctrine/orm",
+<<<<<<< HEAD
             "version": "2.8.1",
             "version_normalized": "2.8.1.0",
             "source": {
@@ -1006,6 +1026,19 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/orm/zipball/242cf1a33df1b8bc5e1b86c3ebd01db07851c833",
                 "reference": "242cf1a33df1b8bc5e1b86c3ebd01db07851c833",
+=======
+            "version": "2.8.2",
+            "version_normalized": "2.8.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/orm.git",
+                "reference": "ebae57eb9637acd8252b398df3121b120688ed5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/ebae57eb9637acd8252b398df3121b120688ed5c",
+                "reference": "ebae57eb9637acd8252b398df3121b120688ed5c",
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
                 "shasum": ""
             },
             "require": {
@@ -1013,7 +1046,11 @@
                 "doctrine/annotations": "^1.11.1",
                 "doctrine/cache": "^1.9.1",
                 "doctrine/collections": "^1.5",
+<<<<<<< HEAD
                 "doctrine/common": "^3.0",
+=======
+                "doctrine/common": "^3.0.3",
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
                 "doctrine/dbal": "^2.10.0",
                 "doctrine/event-manager": "^1.1",
                 "doctrine/inflector": "^1.4|^2.0",
@@ -1034,7 +1071,11 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
+<<<<<<< HEAD
             "time": "2020-12-04T19:53:07+00:00",
+=======
+            "time": "2021-02-16T22:10:18+00:00",
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "bin": [
                 "bin/doctrine"
             ],
@@ -1516,6 +1557,7 @@
                 "rest",
                 "web service"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
                 "source": "https://github.com/guzzle/guzzle/tree/7.2.0"
@@ -1538,6 +1580,8 @@
                     "type": "github"
                 }
             ],
+=======
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "install-path": "../guzzlehttp/guzzle"
         },
         {
@@ -1592,10 +1636,13 @@
             "keywords": [
                 "promise"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
                 "source": "https://github.com/guzzle/promises/tree/1.4.0"
             },
+=======
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "install-path": "../guzzlehttp/promises"
         },
         {
@@ -1670,10 +1717,13 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
                 "source": "https://github.com/guzzle/psr7/tree/1.7.0"
             },
+=======
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "install-path": "../guzzlehttp/psr7"
         },
         {
@@ -2409,9 +2459,12 @@
                 "psr",
                 "psr-18"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/php-fig/http-client/tree/master"
             },
+=======
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "install-path": "../psr/http-client"
         },
         {
@@ -2465,9 +2518,12 @@
                 "request",
                 "response"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/php-fig/http-message/tree/master"
             },
+=======
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "install-path": "../psr/http-message"
         },
         {
@@ -2613,10 +2669,13 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/ralouphie/getallheaders/issues",
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
+=======
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "install-path": "../ralouphie/getallheaders"
         },
         {
@@ -2748,6 +2807,7 @@
                 "translate",
                 "translator"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/Stichoza/google-translate-php/issues",
                 "source": "https://github.com/Stichoza/google-translate-php/tree/v4.1.4"
@@ -2762,6 +2822,8 @@
                     "type": "patreon"
                 }
             ],
+=======
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
             "install-path": "../stichoza/google-translate-php"
         },
         {
@@ -3964,6 +4026,7 @@
         },
         {
             "name": "symfony/flex",
+<<<<<<< HEAD
             "version": "v1.12.1",
             "version_normalized": "1.12.1.0",
             "source": {
@@ -3975,6 +4038,19 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/flex/zipball/394f3e4dc03ea2a5448aeedc9658c8b596b1d39f",
                 "reference": "394f3e4dc03ea2a5448aeedc9658c8b596b1d39f",
+=======
+            "version": "v1.12.2",
+            "version_normalized": "1.12.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/flex.git",
+                "reference": "e472606b4b3173564f0edbca8f5d32b52fc4f2c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/e472606b4b3173564f0edbca8f5d32b52fc4f2c9",
+                "reference": "e472606b4b3173564f0edbca8f5d32b52fc4f2c9",
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
                 "shasum": ""
             },
             "require": {
@@ -3988,11 +4064,19 @@
                 "symfony/phpunit-bridge": "^4.4|^5.0",
                 "symfony/process": "^3.4|^4.4|^5.0"
             },
+<<<<<<< HEAD
             "time": "2021-02-02T16:29:45+00:00",
             "type": "composer-plugin",
             "extra": {
                 "branch-alias": {
                     "dev-main": "1.9-dev"
+=======
+            "time": "2021-02-16T14:05:05+00:00",
+            "type": "composer-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.12-dev"
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
                 },
                 "class": "Symfony\\Flex\\Flex"
             },
