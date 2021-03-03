@@ -6,7 +6,11 @@
     'aliases' => 
     array (
     ),
+<<<<<<< HEAD
+    'reference' => '613adbef459a71c87d27b5895aa827f4b94e11c3',
+=======
     'reference' => 'f5f7c4e9f88309cb33e08687673c169b3b54d8dc',
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +22,11 @@
       'aliases' => 
       array (
       ),
+<<<<<<< HEAD
+      'reference' => '613adbef459a71c87d27b5895aa827f4b94e11c3',
+=======
       'reference' => 'f5f7c4e9f88309cb33e08687673c169b3b54d8dc',
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -31,12 +39,21 @@
     ),
     'doctrine/annotations' => 
     array (
+<<<<<<< HEAD
+      'pretty_version' => '1.11.1',
+      'version' => '1.11.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ce77a7ba1770462cd705a91a151b6c3746f9c6ad',
+=======
       'pretty_version' => '1.12.1',
       'version' => '1.12.1.0',
       'aliases' => 
       array (
       ),
       'reference' => 'b17c5014ef81d212ac539f07a1001832df1b6d3b',
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
     ),
     'doctrine/cache' => 
     array (
@@ -139,12 +156,21 @@
     ),
     'doctrine/orm' => 
     array (
+<<<<<<< HEAD
+      'pretty_version' => '2.8.1',
+      'version' => '2.8.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '242cf1a33df1b8bc5e1b86c3ebd01db07851c833',
+=======
       'pretty_version' => '2.8.2',
       'version' => '2.8.2.0',
       'aliases' => 
       array (
       ),
       'reference' => 'ebae57eb9637acd8252b398df3121b120688ed5c',
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
     ),
     'doctrine/persistence' => 
     array (
@@ -661,12 +687,21 @@
     ),
     'symfony/flex' => 
     array (
+<<<<<<< HEAD
+      'pretty_version' => 'v1.12.1',
+      'version' => '1.12.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '394f3e4dc03ea2a5448aeedc9658c8b596b1d39f',
+=======
       'pretty_version' => 'v1.12.2',
       'version' => '1.12.2.0',
       'aliases' => 
       array (
       ),
       'reference' => 'e472606b4b3173564f0edbca8f5d32b52fc4f2c9',
+>>>>>>> d86823798cca39f5a33c6c30f06d25125acf262f
     ),
     'symfony/form' => 
     array (

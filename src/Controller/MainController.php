@@ -55,7 +55,7 @@ class MainController extends AbstractController
     /**
      * @Route("/en", name="Welcome")
      */
-    public function indexEn( ProduitRepository $repoProduit, CategorieRepository $repoC)
+    public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC)
     {
         $categories = $repoC->findAll();
         return $this->render('index.html_en.twig', [
