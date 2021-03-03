@@ -24,13 +24,41 @@ class MainController extends AbstractController
     {
         $this->cat      = $repoC->findAll();
     }
+
+
+    // /**
+    //  * @Route("/nav", name="nav")
+    //  */
+    // public function nav(OngletRepository $repoO)
+    // {
+    //     $onglets = $repoO->findAll();
+    //     return $this->render('components/navbar.html.twig', [
+    //         'onglets' => $onglets,
+    //     ]);
+    // }
+    
+
     /**
      * @Route("/", name="accueil")
      */
-    public function index( ProduitRepository $repoProduit, CategorieRepository $repoC)
+    public function index( ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
+        $onglets = $repoO->findAll();
         $categories = $repoC->findAll();
         return $this->render('index.html.twig', [
+            'produits' => $repoProduit->findAll(),
+            'categories' => $categories,
+            'onglets' => $onglets,
+        ]);
+    }
+
+    /**
+     * @Route("/en", name="Welcome")
+     */
+    public function indexEn( ProduitRepository $repoProduit, CategorieRepository $repoC)
+    {
+        $categories = $repoC->findAll();
+        return $this->render('index.html_en.twig', [
             'produits' => $repoProduit->findAll(),
             'categories' => $categories,
            
@@ -47,5 +75,4 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
-
 }

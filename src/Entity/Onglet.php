@@ -79,6 +79,12 @@ class Onglet
         return $this->ongletCategories;
     }
 
+    public function setOngletCategories(Categorie $ongletcategorie): self
+    {
+        $this->categorie = $ongletcategorie;
+        return $this;
+    }
+
     public function addOngletCategory(Categorie $ongletCategory): self
     {
         if (!$this->ongletCategories->contains($ongletCategory)) {

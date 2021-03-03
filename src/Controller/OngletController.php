@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Onglet;
 use App\Form\OngletType;
+use App\Repository\CategorieRepository;
 use App\Repository\OngletRepository;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 use Symfony\Component\HttpFoundation\Request;
@@ -73,12 +74,15 @@ class OngletController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="onglet_show", methods={"GET"})
+     * @Route("/onglet/{id}", name="onglet", methods={"GET"})
      */
-    public function show(Onglet $onglet): Response
+    public function show(Onglet $ong, OngletRepository $repoO, CategorieRepository $repoC): Response
     {
-        return $this->render('onglet/show.html.twig', [
-            'onglet' => $onglet,
+        $onglets = $repoO->findAll();
+        return $this->render('onglet.html.twig', [
+            'ong' => $ong,
+            'categories' =>  $repoC,
+            'onglets' => $onglets
         ]);
     }
 
