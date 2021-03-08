@@ -17,15 +17,12 @@
     {% endset %}
     <div class="container">
         <table class="table mt-5">
-            <thead>
-                <tr>
+            <thead class="thead-dark">
+                <tr class="text-center">
                     <th>Nom</th>
                     <th>Description</th>
                     <th>Prix</th>
                     <th>Photo</th>
-                    <th>Ubereats</th>
-                    <th>Deliveroo</th>
-                    <th>Catégories</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -36,11 +33,9 @@
                     <td>{{ produit.description| raw}}</td>
                     <td>{{ produit.prix| raw}}</td>
                     <td><img src="{{asset('uploads/images/featured/' ~ produit.photo )}}" style="width: 90px;"></td>
-                    <td>{{ produit.ubereats ? uber : 'NON' }}</td>
-                    <td>{{ produit.deliveroo ? deliveroo : 'NON' }}</td>
-                    <td>{{ produit.categories|length }}</td>
-                    <td>
-                        <a class="btn btn-info" href="{{ path('produit_edit', {'id': produit.id}) }}">Éditer</a>
+                    <td class="d-flex">
+                        <a class="btn btn-outline-info mr-2" href="{{ path('produit_edit', {'id': produit.id}) }}">Éditer</a>
+                            {{ include('produit/_delete_form.html.twig') }}
                     </td>
                 </tr>
             {% else %}
@@ -54,6 +49,5 @@
     <div class="d-flex justify-content-center mb-4">
         <a class="btn btn-success" href="{{ path('produit_new') }}">Ajouter un nouveau produit</a>
     </div>
-    <a class="btn btn-primary" href="{{ path('categorie_index') }}">Modifier les catégories</a>
 
 {% endblock %}

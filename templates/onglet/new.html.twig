@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Onglet{% endblock %}
+{% block title %}Nouvel Onglet{% endblock %}
 
 {% block body %}
-    <h1>Create new Onglet</h1>
+    {% block menu %}
+        {% include "components/navbar-admin.html.twig" %}
+    {% endblock %}
+    <h1 class="mt-5 text-center">Créer un nouvel Onglet</h1>
 
     {{ include('onglet/_form.html.twig') }}
 
-    <a href="{{ path('onglet_index') }}">back to list</a>
+    <div class="text-center">
+        <a class="mt-5 btn btn-primary"href="{{ path('onglet_index') }}">Revenir à la liste des onglets</a>
+    </div>
 {% endblock %}

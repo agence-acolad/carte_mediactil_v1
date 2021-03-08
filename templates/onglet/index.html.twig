@@ -8,33 +8,34 @@
     {% block menu %}
         {% include "components/navbar-admin.html.twig" %}
     {% endblock %}
-    <h1>Onglet index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for onglet in onglets %}
-            <tr>
-                <td>{{ onglet.id }}</td>
-                <td>{{ onglet.nom }}</td>
-                <td>
-                    {# <a href="{{ path('onglet_show', {'id': onglet.id}) }}">show</a> #}
-                    <a href="{{ path('onglet_edit', {'id': onglet.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('onglet_new') }}">Create new</a>
+    <h1 class="mt-5 mb-4 text-center">Liste des onglets</h1>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for onglet in onglets %}
+                <tr>
+                    <td>{{ onglet.nom }}</td>
+                    <td class="d-flex justify-content-center">
+                        <a class="btn btn-outline-info mr-2" href="{{ path('onglet_edit', {'id': onglet.id}) }}">Éditer</a>
+                        {{ include('onglet/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun onglet trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-success"href="{{ path('onglet_new') }}">Ajouter un onglet</a>
+        </div>
+    </div>
 {% endblock %}

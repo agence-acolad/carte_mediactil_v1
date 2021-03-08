@@ -24,22 +24,23 @@ class MainController extends AbstractController
     {
         $this->cat      = $repoC->findAll();
     }
-
-
-    // /**
-    //  * @Route("/nav", name="nav")
-    //  */
-    // public function nav(OngletRepository $repoO)
-    // {
-    //     $onglets = $repoO->findAll();
-    //     return $this->render('components/navbar.html.twig', [
-    //         'onglets' => $onglets,
-    //     ]);
-    // }
     
+    /**
+     * @Route("/en", name="Welcome")
+     */
+    public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+        $onglets = $repoO->findAll();
+        $categories = $repoC->findAll();
+        return $this->render('index.html_en.twig', [
+            'produits' => $repoProduit->findAll(),
+            'categories' => $categories,
+            'onglets' => $onglets,
+        ]);
+    }
 
     /**
-     * @Route("/", name="accueil")
+     * @Route("/", name="Bienvenue")
      */
     public function index( ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
@@ -52,17 +53,47 @@ class MainController extends AbstractController
         ]);
     }
 
+
     /**
-     * @Route("/en", name="Welcome")
+     * @Route("/es", name="Bienvenido")
      */
-    public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC)
+    public function indexEs(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
+        $onglets = $repoO->findAll();
         $categories = $repoC->findAll();
-        return $this->render('index.html_en.twig', [
+        return $this->render('index.html_es.twig', [
             'produits' => $repoProduit->findAll(),
             'categories' => $categories,
-           
+            'onglets' => $onglets,
         ]);
+    }
+
+    /**
+    * @Route("/de", name="Willkommen")
+    */
+    public function indexDe(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+       $onglets = $repoO->findAll();
+       $categories = $repoC->findAll();
+       return $this->render('index.html_de.twig', [
+           'produits' => $repoProduit->findAll(),
+           'categories' => $categories,
+           'onglets' => $onglets,
+       ]);
+    }
+
+    /**
+    * @Route("/it", name="Benvenuto")
+    */
+    public function indexIt(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+       $onglets = $repoO->findAll();
+       $categories = $repoC->findAll();
+       return $this->render('index.html_it.twig', [
+           'produits' => $repoProduit->findAll(),
+           'categories' => $categories,
+           'onglets' => $onglets,
+       ]);
     }
 
     /**

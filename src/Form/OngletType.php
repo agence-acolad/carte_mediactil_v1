@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Onglet;
+use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class OngletType extends AbstractType
@@ -13,7 +15,13 @@ class OngletType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('ongletCategories')
+            ->add('ongletCategories', EntityType::class, [
+                'choice_label'=> 'nom',
+                'class'=> Categorie::class,
+                'label'=>'Choisir une ou plusieurs cétegories',
+                'multiple' => true,
+                'expanded' => true,
+                ])
         ;
     }
 

@@ -1,4 +1,10 @@
+<div class="container">
+
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+        <div class="d-flex justify-content-center mt-3">
+            <button class="btn btn-outline-success">{{ button_label|default('Sauvegarder') }}</button>
+        </div>
 {{ form_end(form) }}
+
+</div>

@@ -6,37 +6,7 @@
     {% block menu %}
         {% include "components/navbar.html.twig" %}
     {% endblock %}
-{# Suggestion & menu #}
-<div class="container-fluid mt-5 ">
-    <div class="row" data-masonry='{"percentPosition": true }'>
-        <div class="col-6 d-flex align-items-stretch justify-content-center">
-            <div class="card text-dark bg-light mb-3 w-100" style="">
-                <div class="card-header text-uppercase">{{suggestion.nom}} </div>
-                {# {{ dump(suggestion.produits)}} #}
-                {% for produit in suggestion.produits %}
-                    <div class="card-body">
-                            <div class="row">  
-                                <div class="col-8 d-flex">
-                                <p> <span class="h5 text-uppercase">{{produit.nom}}</span></p>
-                                </div>
-                                <div class="col-4 d-flex ">
-                                    <p class="col-8 fs-2">{{produit.prix}}€</p>
-                                    <p classe="col-2 mr-1">{{ produit.ubereats ? uber : '' }}</p>
-                                    <p classe="col-2 ml-2">{{ produit.deliveroo ? deliveroo : '' }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <p style="margin:-15px 0  0 15px; "> {{produit.description|raw }}</p>
-                            </div>
-                            {% if loop.last == false  %}
-                            <hr>
-                            {% endif %}
-                            {% endfor %}
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 {# card #}
 {% set uber %}
     <img src="{{ asset('images/ubereats.png') }}" style="max-width: 30px">
@@ -57,10 +27,8 @@
                                 <div class="col-8 d-flex">
                                 <p> <span class="h5 text-uppercase">{{produit.nom}}</span></p>
                                 </div>
-                                <div class="col-4 d-flex ">
-                                    <p class="col-8 fs-2">{{produit.prix}}€</p>
-                                    <p class="col-2">{{ produit.ubereats ? uber : '' }}</p>
-                                    <p class="col-2">{{ produit.deliveroo ? deliveroo : '' }}</p>
+                                <div class="col-4 d-flex justify-content-end">
+                                    <p>{{produit.prix}}€</p>
                                 </div>
                             </div>
                             <div class="row">

@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Categorie{% endblock %}
+{% block title %}Nouvelle Categorie{% endblock %}
 
 {% block body %}
-    <h1>Create new Categorie</h1>
+    {% block menu %}
+        {% include "components/navbar-admin.html.twig" %}
+    {% endblock %}
+
+    <h1 class="mt-5 text-center">Créer une noouvelle Categorie</h1>
 
     {{ include('categorie/_form.html.twig') }}
 
-    <a href="{{ path('categorie_index') }}">back to list</a>
+    <div class="text-center">
+        <a class="mt-5 btn btn-primary"href="{{ path('categorie_index') }}">Revenir à la liste des catégories</a>
+    </div>
 {% endblock %}

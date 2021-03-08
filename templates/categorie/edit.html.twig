@@ -3,11 +3,18 @@
 {% block title %}Edit Categorie{% endblock %}
 
 {% block body %}
-    <h1>Editer une Categorie</h1>
+    {% block menu %}
+            {% include "components/navbar-admin.html.twig" %}
+    {% endblock %}
+    <h1 class="text-center mt-5">Éditer une Categorie</h1>
 
     {{ include('categorie/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('categorie_index') }}">Revenir à la liste des catégories</a>
 
+    <div class="d-flex justify-content-center mt-3">
     {{ include('categorie/_delete_form.html.twig') }}
+    </div>
+
+    <a class="btn btn-outline-primary mt-5" href="{{ path('categorie_index') }}">Revenir à la liste des catégories</a>
+
 {% endblock %}

@@ -3,11 +3,16 @@
 {% block title %}Edit Onglet{% endblock %}
 
 {% block body %}
-    <h1>Edit Onglet</h1>
+    {% block menu %}
+            {% include "components/navbar-admin.html.twig" %}
+    {% endblock %}
 
-    {{ include('onglet/_form.html.twig', {'button_label': 'Update'}) }}
+    <h1 class="text-center mt-5">Éditer Onglet</h1>
 
-    <a href="{{ path('onglet_index') }}">back to list</a>
+    {{ include('onglet/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    {{ include('onglet/_delete_form.html.twig') }}
+    <div class="d-flex justify-content-center mt-3">
+        {{ include('onglet/_delete_form.html.twig') }}
+    </div>
+    <a class="btn btn-outline-primary" href="{{ path('onglet_index') }}">Revenir à la liste des onglets</a>
 {% endblock %}

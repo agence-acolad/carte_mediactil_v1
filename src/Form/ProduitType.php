@@ -32,8 +32,6 @@ class ProduitType extends AbstractType
                     'placeholder' => "Choisissez votre image"
                 ]
             ])
-            ->add('ubereats')
-            ->add('deliveroo')
             ->add('categories', EntityType::class, [
                 'choice_label'=> 'nom',
                 'class'=> Categorie::class,

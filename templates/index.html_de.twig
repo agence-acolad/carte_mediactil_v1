@@ -4,7 +4,7 @@
 
 {% block body %}
     {% block menu %}
-        {% include "components/navbar.html_en.twig" %}
+        {% include "components/navbar.html_de.twig" %}
     {% endblock %}
 
 {# card #}
@@ -20,19 +20,19 @@
             {% for categorie in categories %}   
         <div class="col-6 d-flex align-items-stretch justify-content-center">
             <div class="card text-dark bg-light mb-3 w-100" style="">
-                <div class="card-header text-uppercase">{{categorie.nomEn}}</div>
+                <div class="card-header text-uppercase">{{categorie.nomDe}}</div>
                     <div class="card-body">
                         {% for produit in categorie.produits %}
                             <div class="row">  
                                 <div class="col-8 d-flex">
-                                <p> <span class="h5 text-uppercase">{{produit.nomEn}}</span></p>
+                                <p> <span class="h5 text-uppercase">{{produit.nomDe}}</span></p>
                                 </div>
                                 <div class="col-4 d-flex justify-content-end ">
                                     <p>{{produit.prix}}€</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <p style="margin:-15px 0  0 15px; "> {{produit.descEn|raw }}</p>
+                                <p style="margin:-15px 0  0 15px; "> {{produit.descDe|raw }}</p>
                             </div>
                             <hr>
                         {% endfor %}
