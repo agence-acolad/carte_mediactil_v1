@@ -30,7 +30,7 @@
     <div class="col-2" style="overflow:hidden;"> 
         <h6 class="mx-auto mt-4">Langage</h6>
         <a href="/"><div class="flag col-12"> <img class="img-fluid mx-auto d-block my-3" style="max-width:60%;" src="{{ asset('/images/flag/fr.png' )}}" alt="" srcset=""> </div></a>
-        <a href="/es"><div class="flag col-12"> <img class="img-fluid mx-auto d-block my-3" style="max-width:60%;" src="{{ asset('/images/flag/es.png' )}}" alt="" srcset=""> </div></a>
+        <a href="/ru"><div class="flag col-12"> <img class="img-fluid mx-auto d-block my-3" style="max-width:60%;" src="{{ asset('/images/flag/ru.png' )}}" alt="" srcset=""> </div></a>
         <a href="/de"><div class="flag col-12"> <img class="img-fluid mx-auto d-block my-3" style="max-width:60%;" src="{{ asset('/images/flag/de.png' )}}" alt="" srcset=""> </div></a>
         <a href="/en"><div class="flag col-12"> <img class="img-fluid mx-auto d-block my-3" style="max-width:60%;" src="{{ asset('/images/flag/gb.png' )}}" alt="" srcset=""></div></a>
         <a href="/it"><div class="flag col-12"><img class="img-fluid mx-auto d-block my-3" style="max-width:60%;" src="{{ asset('/images/flag/it.png' )}}" alt="" srcset=""></div></a>
@@ -41,7 +41,7 @@
         </div> #}
         <div class="d-flex justify-content-around" style="width: 100vw;">
             {% for onglet in onglets %}
-                <a href="{{path('onglet', {'id': onglet.id})}}" class="btn btn-outline-danger btn-sm">{{onglet.nomEs}}</a>
+                <a href="{{path('ongletRu', {'id': onglet.id})}}" class="btn btn-outline-danger btn-sm">{{onglet.nomEs}}</a>
             {% endfor %}
         </div>  
     </div>

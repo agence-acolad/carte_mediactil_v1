@@ -87,6 +87,58 @@ class OngletController extends AbstractController
     }
 
     /**
+     * @Route("/ongletDe/{id}", name="ongletDe", methods={"GET"})
+     */
+    public function showDe(Onglet $ong, OngletRepository $repoO, CategorieRepository $repoC): Response
+    {
+        $onglets = $repoO->findAll();
+        return $this->render('onglet.html_de.twig', [
+            'ong' => $ong,
+            'categories' =>  $repoC,
+            'onglets' => $onglets
+        ]);
+    }
+
+    /**
+     * @Route("/ongletEn/{id}", name="ongletEn", methods={"GET"})
+     */
+    public function showEn(Onglet $ong, OngletRepository $repoO, CategorieRepository $repoC): Response
+    {
+        $onglets = $repoO->findAll();
+        return $this->render('onglet.html_en.twig', [
+            'ong' => $ong,
+            'categories' =>  $repoC,
+            'onglets' => $onglets
+        ]);
+    }
+
+    /**
+     * @Route("/ongletIt/{id}", name="ongletIt", methods={"GET"})
+     */
+    public function showIt(Onglet $ong, OngletRepository $repoO, CategorieRepository $repoC): Response
+    {
+        $onglets = $repoO->findAll();
+        return $this->render('onglet.html_it.twig', [
+            'ong' => $ong,
+            'categories' =>  $repoC,
+            'onglets' => $onglets
+        ]);
+    }
+
+    /**
+     * @Route("/ongletRu/{id}", name="ongletRu", methods={"GET"})
+     */
+    public function showRu(Onglet $ong, OngletRepository $repoO, CategorieRepository $repoC): Response
+    {
+        $onglets = $repoO->findAll();
+        return $this->render('onglet.html_ru.twig', [
+            'ong' => $ong,
+            'categories' =>  $repoC,
+            'onglets' => $onglets
+        ]);
+    }
+
+    /**
      * @Route("/{id}/edit", name="onglet_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Onglet $onglet): Response

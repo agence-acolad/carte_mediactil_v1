@@ -4,7 +4,7 @@
 
 {% block body %}
     {% block menu %}
-        {% include "components/navbar.html_es.twig" %}
+        {% include "components/navbar.html_ru.twig" %}
     {% endblock %}
 
 {# card #}
@@ -34,7 +34,9 @@
                             <div class="row">
                                 <p style="margin:-15px 0  0 15px; "> {{produit.descEs|raw }}</p>
                             </div>
-                            <hr>
+                            {% if loop.last == false  %}
+                                <hr>
+                            {% endif %}
                         {% endfor %}
                     </div>
             </div>
