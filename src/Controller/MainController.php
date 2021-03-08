@@ -20,10 +20,10 @@ class MainController extends AbstractController
     public $cat;
 
 
-    function __construct( CategorieRepository $repoC)
-    {
-        $this->cat      = $repoC->findAll();
-    }
+    // function __construct( CategorieRepository $repoC)
+    // {
+    //     $this->cat      = $repoC->findAll();
+    // }
     
     /**
      * @Route("/en", name="Welcome")
