@@ -55,7 +55,7 @@ class ProduitController extends AbstractController
             $nomFr = $produit->getNom();
             $nomEN = $this->translate('en', $nomFr);
             $produit->setNomEn($nomEN);
-            $nomES = $this->translate('es', $nomFr);
+            $nomES = $this->translate('ru', $nomFr);
             $produit->setNomEs($nomES);
             $nomDE = $this->translate('de', $nomFr);
             $produit->setNomDe($nomDE);
@@ -65,7 +65,7 @@ class ProduitController extends AbstractController
             $descFr = $produit->getDescription();
             $descEN = $this->translate('en', $descFr);
             $produit->setDescEn($descEN);
-            $descES = $this->translate('es', $descFr);
+            $descES = $this->translate('ru', $descFr);
             $produit->setDescEs($descES);            
             $descDE = $this->translate('de', $descFr);
             $produit->setDescDE($descDE);

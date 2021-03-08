@@ -55,13 +55,13 @@ class MainController extends AbstractController
 
 
     /**
-     * @Route("/es", name="Bienvenido")
+     * @Route("/ru", name="Добро пожаловать")
      */
-    public function indexEs(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    public function indexRu(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
         $onglets = $repoO->findAll();
         $categories = $repoC->findAll();
-        return $this->render('index.html_es.twig', [
+        return $this->render('index.html_ru.twig', [
             'produits' => $repoProduit->findAll(),
             'categories' => $categories,
             'onglets' => $onglets,
