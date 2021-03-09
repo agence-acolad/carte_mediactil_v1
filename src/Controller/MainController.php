@@ -103,4 +103,18 @@ class MainController extends AbstractController
             'onglets' => $onglets,
         ]);
     }
+
+     /**
+     * @Route("/portefolio", name="portefolio")
+     */
+    public function portefolio(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+        $onglets = $repoO->findAll();
+        $categories = $repoC->findAll();
+        return $this->render('portefolio.html.twig', [
+            'produits' => $repoProduit->findAll(),
+            'categories' => $categories,
+            'onglets' => $onglets,
+        ]);
+    }
 }
