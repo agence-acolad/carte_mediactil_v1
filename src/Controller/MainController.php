@@ -17,7 +17,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class MainController extends AbstractController
 {
-    public $cat;
 
 
     function __construct( CategorieRepository $repoC)
@@ -26,9 +25,9 @@ class MainController extends AbstractController
     }
     
     /**
-     * @Route("/en", name="Welcome")
+     * @Route("/", name="Bienvenue")
      */
-    public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    public function index( ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
         $onglets = $repoO->findAll();
         return $this->render('index.html_en.twig', [
@@ -40,10 +39,10 @@ class MainController extends AbstractController
             ]);
     }
 
-    /**
-     * @Route("/", name="Bienvenue")
+     /**
+     * @Route("/en", name="Welcome")
      */
-    public function index( ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
         $onglets = $repoO->findAll();
         return $this->render('index.html.twig', [
@@ -54,7 +53,6 @@ class MainController extends AbstractController
             'onglets' => $onglets,
         ]);
     }
-
 
     /**
      * @Route("/ru", name="Добро пожаловать")
@@ -105,10 +103,29 @@ class MainController extends AbstractController
      * @IsGranted("ROLE_ADMIN")
      * @Route("/admin", name="administration")
      */
-    public function admin()
+    public function admin(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
+        $onglets = $repoO->findAll();
+        $categories = $repoC->findAll();
         return $this->render('admin.html.twig', [
             'controller_name' => 'MainController',
+            'produits' => $repoProduit->findAll(),
+            'categories' => $categories,
+            'onglets' => $onglets,
+        ]);
+    }
+
+     /**
+     * @Route("/portefolio", name="portefolio")
+     */
+    public function portefolio(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+        $onglets = $repoO->findAll();
+        $categories = $repoC->findAll();
+        return $this->render('portefolio.html.twig', [
+            'produits' => $repoProduit->findAll(),
+            'categories' => $categories,
+            'onglets' => $onglets,
         ]);
     }
 }

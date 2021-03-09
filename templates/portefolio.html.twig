@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+    {% block menu %}
+        {% include "components/navbar.html.twig" %}
+    {% endblock %}
+    <div class="container-fluid mt-5 mx-4">
+        <div class="row" data-masonry='{"percentPosition": true }'>
+            {% for produit in produits %}
+                    <img class="m-2" src="{{ vich_uploader_asset(produit, 'imageFile')}}" alt="" style="width:30%; height:auto;">
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
