@@ -17,27 +17,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class MainController extends AbstractController
 {
-    public $cat;
-
-
-    // function __construct( CategorieRepository $repoC)
-    // {
-    //     $this->cat      = $repoC->findAll();
-    // }
-    
-    /**
-     * @Route("/en", name="Welcome")
-     */
-    public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
-    {
-        $onglets = $repoO->findAll();
-        $categories = $repoC->findAll();
-        return $this->render('index.html_en.twig', [
-            'produits' => $repoProduit->findAll(),
-            'categories' => $categories,
-            'onglets' => $onglets,
-        ]);
-    }
 
     /**
      * @Route("/", name="Bienvenue")
@@ -53,6 +32,19 @@ class MainController extends AbstractController
         ]);
     }
 
+     /**
+     * @Route("/en", name="Welcome")
+     */
+    public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+        $onglets = $repoO->findAll();
+        $categories = $repoC->findAll();
+        return $this->render('index.html_en.twig', [
+            'produits' => $repoProduit->findAll(),
+            'categories' => $categories,
+            'onglets' => $onglets,
+        ]);
+    }
 
     /**
      * @Route("/ru", name="Добро пожаловать")
@@ -100,10 +92,15 @@ class MainController extends AbstractController
      * @IsGranted("ROLE_ADMIN")
      * @Route("/admin", name="administration")
      */
-    public function admin()
+    public function admin(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
+        $onglets = $repoO->findAll();
+        $categories = $repoC->findAll();
         return $this->render('admin.html.twig', [
             'controller_name' => 'MainController',
+            'produits' => $repoProduit->findAll(),
+            'categories' => $categories,
+            'onglets' => $onglets,
         ]);
     }
 }
