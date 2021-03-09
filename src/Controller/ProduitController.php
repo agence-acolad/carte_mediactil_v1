@@ -61,22 +61,29 @@ class ProduitController extends AbstractController
             $produit->setNomDe($nomDE);
             $nomIT = $this->translate('it', $nomFr);
             $produit->setNomIt($nomIT);
-
+            
             $descFr = $produit->getDescription();
-            $descEN = $this->translate('en', $descFr);
-            $produit->setDescEn($descEN);
-            $descES = $this->translate('ru', $descFr);
-            $produit->setDescEs($descES);            
-            $descDE = $this->translate('de', $descFr);
-            $produit->setDescDE($descDE);
-            $descIT = $this->translate('it', $descFr);
-            $produit->setDescIT($descIT);
+            if($descFr == ''){
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($produit);
+                $entityManager->flush();
+            } else {
 
-
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($produit);
-            $entityManager->flush();
+                $descEN = $this->translate('en', $descFr);
+                $produit->setDescEn($descEN);
+                $descES = $this->translate('ru', $descFr);
+                $produit->setDescEs($descES);            
+                $descDE = $this->translate('de', $descFr);
+                $produit->setDescDE($descDE);
+                $descIT = $this->translate('it', $descFr);
+                $produit->setDescIT($descIT);
+    
+    
+    
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($produit);
+                $entityManager->flush();
+            }
             
 
             return $this->redirectToRoute('produit_index');

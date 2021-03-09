@@ -22,7 +22,7 @@ class MainController extends AbstractController
 
     function __construct( CategorieRepository $repoC)
     {
-        $this->cat      = $repoC->findAll();
+        $this->cat = $repoC->findAll();
     }
     
     /**
@@ -31,12 +31,13 @@ class MainController extends AbstractController
     public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
         $onglets = $repoO->findAll();
-        $categories = $repoC->findAll();
         return $this->render('index.html_en.twig', [
+            'catNext' => $repoC->findAll(),
             'produits' => $repoProduit->findAll(),
-            'categories' => $categories,
+            'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
+            'catStarter' => $repoC->findOneBy(['nom' => 'Entrées / Salade Repas']),
             'onglets' => $onglets,
-        ]);
+            ]);
     }
 
     /**
@@ -45,10 +46,11 @@ class MainController extends AbstractController
     public function index( ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
         $onglets = $repoO->findAll();
-        $categories = $repoC->findAll();
         return $this->render('index.html.twig', [
+            'catNext' => $repoC->findAll(),
             'produits' => $repoProduit->findAll(),
-            'categories' => $categories,
+            'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
+            'catStarter' => $repoC->findOneBy(['nom' => 'Entrées / Salade Repas']),
             'onglets' => $onglets,
         ]);
     }
@@ -60,10 +62,11 @@ class MainController extends AbstractController
     public function indexRu(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
         $onglets = $repoO->findAll();
-        $categories = $repoC->findAll();
         return $this->render('index.html_ru.twig', [
+            'catNext' => $repoC->findAll(),
             'produits' => $repoProduit->findAll(),
-            'categories' => $categories,
+            'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
+            'catStarter' => $repoC->findOneBy(['nom' => 'Entrées / Salade Repas']),
             'onglets' => $onglets,
         ]);
     }
@@ -74,12 +77,13 @@ class MainController extends AbstractController
     public function indexDe(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
        $onglets = $repoO->findAll();
-       $categories = $repoC->findAll();
        return $this->render('index.html_de.twig', [
-           'produits' => $repoProduit->findAll(),
-           'categories' => $categories,
-           'onglets' => $onglets,
-       ]);
+        'catNext' => $repoC->findAll(),
+        'produits' => $repoProduit->findAll(),
+        'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
+        'catStarter' => $repoC->findOneBy(['nom' => 'Entrées / Salade Repas']),
+        'onglets' => $onglets,
+   ]);
     }
 
     /**
@@ -88,11 +92,12 @@ class MainController extends AbstractController
     public function indexIt(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
        $onglets = $repoO->findAll();
-       $categories = $repoC->findAll();
        return $this->render('index.html_it.twig', [
-           'produits' => $repoProduit->findAll(),
-           'categories' => $categories,
-           'onglets' => $onglets,
+        'catNext' => $repoC->findAll(),
+        'produits' => $repoProduit->findAll(),
+        'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
+        'catStarter' => $repoC->findOneBy(['nom' => 'Entrées / Salade Repas']),
+        'onglets' => $onglets,
        ]);
     }
 

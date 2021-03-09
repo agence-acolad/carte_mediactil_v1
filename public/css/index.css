@@ -1,0 +1,62 @@
+.suggestion {
+    margin: 0 auto;
+    width: 95vw;
+    border: 1px solid red;
+}
+.starter {
+    margin: 10px auto 0 auto;
+    width: 95vw;
+}
+.starterHr {
+    border-top: 3px solid red;
+}
+.prodid2 {
+    font-size: medium;
+    letter-spacing: 0mm;
+}
+.descid2 {
+    font-size: small;
+}
+
+/* =========================== Cartes x3 ===================== */
+.next {
+    display: flex;
+    justify-content: space-around;
+    width: 95vw;
+    flex-wrap: wrap;
+}
+.cartes {
+    width: 30vw;
+    border-top: 3px solid red;
+}
+.titre {
+    font-size: medium;
+}
+.nextHr {
+    width: 100%;
+    border-top: 1px solid red;
+}
+.prodNext {
+    display: block;
+    font-size: small;
+    line-height: 0;
+    margin: 0!important;
+}
+.descNext {
+    display: block;
+    line-height: 0;
+}
+.prixNext {
+    display: block;
+    line-height: 0;
+}
+
+/* =========================== Onglets ===================== */
+.onglet {
+    width: 45vw;
+    border-top: 3px solid red;
+}
+.ongletHr {
+    border-top: 1px solid red;
+    margin-top: -5px;
+}

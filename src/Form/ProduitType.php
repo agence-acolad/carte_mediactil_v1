@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProduitType extends AbstractType
@@ -21,10 +22,29 @@ class ProduitType extends AbstractType
         $builder
             ->add('nom', TextType::class,[
                 'label' => "Nom du Produit",
+                'attr' => [
+                    'placeholder' => "SALADE CHICKEN CEASAR"
+                ]
             ])
-            ->add('description', TextareaType::class)
-            ->add('prix')
-            // ->add('photo')
+            ->add('description', TextareaType::class,[
+                'required' => false,
+                'attr' => [
+                    'placeholder' => "et son croustillant de poulet"
+                ]
+            ])
+            ->add('prix', NumberType::class,[
+                'label' => "Prix en plat",
+                'attr' => [
+                    'placeholder' => "18"
+                ]
+            ])
+            ->add('prixOptionnel', NumberType::class,[
+                'required' => false,
+                'label' => "Prix en entrée (optionnel)",
+                'attr' => [
+                    'placeholder' => "14"
+                ]
+            ])
             ->add('imageFile', FileType::class, [
                 'required' => false,
                 'label' => "Choisir l'image du produit",

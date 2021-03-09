@@ -15,13 +15,6 @@ class CategorieType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('produits', EntityType::class, [
-                'choice_label'=> 'nom',
-                'class'=> Produit::class,
-                'label'=>'Choisir un ou plusieurs produits',
-                'multiple' => true,
-                'expanded' => true,
-                ])
         ;
     }
 

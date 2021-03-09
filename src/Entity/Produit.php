@@ -29,7 +29,7 @@ class Produit
     private $nom;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
@@ -110,6 +110,11 @@ class Produit
      * @ORM\Column(type="text", nullable=true)
      */
     private $descIt;
+
+    /**
+     * @ORM\Column(type="decimal", precision=5, scale=2, nullable=true)
+     */
+    private $prixOptionnel;
 
     public function __construct()
     {
@@ -353,6 +358,18 @@ class Produit
     public function setDescIt(?string $descIt): self
     {
         $this->descIt = $descIt;
+
+        return $this;
+    }
+
+    public function getPrixOptionnel(): ?string
+    {
+        return $this->prixOptionnel;
+    }
+
+    public function setPrixOptionnel(?string $prixOptionnel): self
+    {
+        $this->prixOptionnel = $prixOptionnel;
 
         return $this;
     }
