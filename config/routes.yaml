@@ -1,3 +1,18 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+nespresso:
+    path:          /nespresso
+    controller:    Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        # the path of the template to render
+        template:  'nespresso/nespresso.html.twig'
+
+        
+petitdejeuner:
+    path:          /petitdej
+    controller:    Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        # the path of the template to render
+        template:  'petit_dejeuner/petitdej.html.twig'
