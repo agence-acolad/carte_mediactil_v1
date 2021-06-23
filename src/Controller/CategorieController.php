@@ -31,7 +31,6 @@ class CategorieController extends AbstractController
     }
     
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/", name="categorie_index", methods={"GET"})
      */
     public function index(CategorieRepository $categorieRepository): Response
@@ -42,7 +41,6 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/new", name="categorie_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -57,7 +55,7 @@ class CategorieController extends AbstractController
             $nomFr = $categorie->getNom();
             $nomEN = $this->translate('en', $nomFr);
             $categorie->setNomEn($nomEN);
-            $nomES = $this->translate('es', $nomFr);
+            $nomES = $this->translate('ru', $nomFr);
             $categorie->setNomEs($nomES);
             $nomDE = $this->translate('de', $nomFr);
             $categorie->setNomDe($nomDE);
@@ -92,7 +90,6 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="categorie_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Categorie $categorie): Response
@@ -101,6 +98,18 @@ class CategorieController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // tradcution du nom 
+            $nomFr = $categorie->getNom();
+            $nomEN = $this->translate('en', $nomFr);
+            $categorie->setNomEn($nomEN);
+            $nomES = $this->translate('ru', $nomFr);
+            $categorie->setNomEs($nomES);
+            $nomDE = $this->translate('de', $nomFr);
+            $categorie->setNomDe($nomDE);
+            $nomIT = $this->translate('it', $nomFr);
+            $categorie->setNomIt($nomIT);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('categorie_index');
@@ -113,7 +122,6 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="categorie_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Categorie $categorie): Response

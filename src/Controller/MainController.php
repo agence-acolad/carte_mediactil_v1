@@ -30,7 +30,7 @@ class MainController extends AbstractController
     public function index( ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
         $onglets = $repoO->findAll();
-        return $this->render('index.html_en.twig', [
+        return $this->render('index.html.twig', [
             'catNext' => $repoC->findAll(),
             'produits' => $repoProduit->findAll(),
             'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
@@ -45,7 +45,7 @@ class MainController extends AbstractController
     public function indexEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
         $onglets = $repoO->findAll();
-        return $this->render('index.html.twig', [
+        return $this->render('index.html_en.twig', [
             'catNext' => $repoC->findAll(),
             'produits' => $repoProduit->findAll(),
             'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
@@ -100,8 +100,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
-     * @Route("/admin", name="administration")
+     * @Route("/adminlecosmo", name="administration")
      */
     public function admin(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
@@ -111,6 +110,21 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
             'produits' => $repoProduit->findAll(),
             'categories' => $categories,
+            'onglets' => $onglets,
+        ]);
+    }
+
+    /**
+     * @Route("/suggestions", name="suggestions")
+     */
+    public function suggestions(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+        $onglets = $repoO->findAll();
+        return $this->render('suggestions.html.twig', [
+            'catNext' => $repoC->findAll(),
+            'produits' => $repoProduit->findAll(),
+            'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
+            'catStarter' => $repoC->findOneBy(['nom' => 'Entrées / Salade Repas']),
             'onglets' => $onglets,
         ]);
     }
@@ -128,4 +142,98 @@ class MainController extends AbstractController
             'onglets' => $onglets,
         ]);
     }
+
+    /**
+    * @Route("/menu", name="menu")
+    */
+    public function menu(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+       $onglets = $repoO->findAll();
+       return $this->render('menu/menu.html.twig', [
+        'catNext' => $repoC->findAll(),
+        'produits' => $repoProduit->findAll(),
+        'catMenus' => $repoC->findOneBy(['nom' => 'Menus']),
+        'MenuEnt' => $repoC->findOneBy(['nom' => 'Menu - Entrées']),
+        'MenuPlat' => $repoC->findOneBy(['nom' => 'Menu - Plats']),
+        'MenuDess' => $repoC->findOneBy(['nom' => 'Menu - Desserts']),
+        'onglets' => $onglets,
+       ]);
+    }
+
+    /**
+    * @Route("/menuEn", name="menuEn")
+    */
+    public function menuEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+       $onglets = $repoO->findAll();
+       return $this->render('menu/menu.html_en.twig', [
+        'catNext' => $repoC->findAll(),
+        'produits' => $repoProduit->findAll(),
+        'catMenus' => $repoC->findOneBy(['nom' => 'Menus']),
+        'MenuEnt' => $repoC->findOneBy(['nom' => 'Menu - Entrées']),
+        'MenuPlat' => $repoC->findOneBy(['nom' => 'Menu - Plats']),
+        'MenuDess' => $repoC->findOneBy(['nom' => 'Menu - Desserts']),
+        'onglets' => $onglets,
+       ]);
+    }
+
+    /**
+    * @Route("/menuDe", name="menuDe")
+    */
+    public function menuDe(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+       $onglets = $repoO->findAll();
+       return $this->render('menu/menu.html_de.twig', [
+        'catNext' => $repoC->findAll(),
+        'produits' => $repoProduit->findAll(),
+        'catMenus' => $repoC->findOneBy(['nom' => 'Menus']),
+        'MenuEnt' => $repoC->findOneBy(['nom' => 'Menu - Entrées']),
+        'MenuPlat' => $repoC->findOneBy(['nom' => 'Menu - Plats']),
+        'MenuDess' => $repoC->findOneBy(['nom' => 'Menu - Desserts']),
+        'onglets' => $onglets,
+       ]);
+    }
+
+    /**
+    * @Route("/menuIt", name="menuIt")
+    */
+    public function menuIt(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+       $onglets = $repoO->findAll();
+       return $this->render('menu/menu.html_it.twig', [
+        'catNext' => $repoC->findAll(),
+        'produits' => $repoProduit->findAll(),
+        'catMenus' => $repoC->findOneBy(['nom' => 'Menus']),
+        'MenuEnt' => $repoC->findOneBy(['nom' => 'Menu - Entrées']),
+        'MenuPlat' => $repoC->findOneBy(['nom' => 'Menu - Plats']),
+        'MenuDess' => $repoC->findOneBy(['nom' => 'Menu - Desserts']),
+        'onglets' => $onglets,
+       ]);
+    }
+
+    /**
+    * @Route("/menuRu", name="menuRu")
+    */
+    public function menuRu(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
+    {
+       $onglets = $repoO->findAll();
+       return $this->render('menu/menu.html_ru.twig', [
+        'catNext' => $repoC->findAll(),
+        'produits' => $repoProduit->findAll(),
+        'catMenus' => $repoC->findOneBy(['nom' => 'Menus']),
+        'MenuEnt' => $repoC->findOneBy(['nom' => 'Menu - Entrées']),
+        'MenuPlat' => $repoC->findOneBy(['nom' => 'Menu - Plats']),
+        'MenuDess' => $repoC->findOneBy(['nom' => 'Menu - Desserts']),
+        'onglets' => $onglets,
+       ]);
+    }
+
+    /**
+    * @Route("/aide", name="help")
+    */
+   public function help()
+   {
+       return $this->render('aide.html.twig', [
+       ]);
+   }
 }

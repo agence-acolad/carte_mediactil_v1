@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+    {% block menu %}
+        {% include "components/navbar-admin.html.twig" %}
+    {% endblock %}
+    <h1 class="text-center mt-5">Modifier les suggestions</h1>
+    <div class="text-center m-5">
+        <a href="/produit/new"><button type="button" class="btn btn-success mx-2" href="/produit">Ajouter un produit</button></a>
+    </div>
+        <div class="container mt-4">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr class="text-center">
+                        <th>Nom</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produit in catSuggestion.produits %}
+                    <tr>
+                        <td>{{ produit.nom }}</td>
+                        <td class="d-flex justify-content-center">
+                            <a class="btn btn-outline-info mr-2" href="{{ path('produit_edit', {'id': produit.id}) }}">Éditer</a>
+                            {{ include('produit/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+{% endblock %}

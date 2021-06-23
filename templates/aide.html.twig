@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+    {% block menu %}
+        {% include "components/navbar-admin.html.twig" %}
+    {% endblock %}
+    <div class="container mt-4">
+    <h1>Contacts en cas de problème technique</h1>
+        <div class="d-flex justify-content-around">
+            <div class="card mt-4" style="width: 30%;">
+                <div class="card-header">
+                    <h5 class="card-title text-center mt-2">Développeurs :</h5>
+                </div>
+                <div class="card-body">
+                    <p> Aurélien Dachier : 06 89 04 00 08</p>
+                    <hr>
+                    <p>Thomas Colomas : 06 26 40 62 45</p>
+                </div>
+            </div>
+            <div class="card mt-4" style="width: 30%;">
+                <div class="card-header">
+                    <h5 class="card-title text-center mt-2">Mediactil :</h5>
+                </div>
+                <div class="card-body d-flex align-items-center flex-column">
+                    <p>Lionel Catalano : 06 33 27 91 79</p>
+                    <p>lionel.catalano@medicatil.fr</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

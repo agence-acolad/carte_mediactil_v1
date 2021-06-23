@@ -53,7 +53,7 @@ class OngletController extends AbstractController
             $nomFr = $onglet->getNom();
             $nomEN = $this->translate('en', $nomFr);
             $onglet->setNomEn($nomEN);
-            $nomES = $this->translate('es', $nomFr);
+            $nomES = $this->translate('ru', $nomFr);
             $onglet->setNomEs($nomES);
             $nomDE = $this->translate('de', $nomFr);
             $onglet->setNomDe($nomDE);
@@ -147,6 +147,15 @@ class OngletController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $nomFr = $onglet->getNom();
+            $nomEN = $this->translate('en', $nomFr);
+            $onglet->setNomEn($nomEN);
+            $nomES = $this->translate('ru', $nomFr);
+            $onglet->setNomEs($nomES);
+            $nomDE = $this->translate('de', $nomFr);
+            $onglet->setNomDe($nomDE);
+            $nomIT = $this->translate('it', $nomFr);
+            $onglet->setNomIt($nomIT);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('onglet_index');

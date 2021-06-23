@@ -30,7 +30,6 @@ class ProduitController extends AbstractController
     }
     
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/", name="produit_index", methods={"GET"})
      */
     public function index(ProduitRepository $produitRepository): Response
@@ -41,7 +40,6 @@ class ProduitController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/new", name="produit_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -96,7 +94,6 @@ class ProduitController extends AbstractController
     }
 
     /**
-     * 
      * @Route("/{id}", name="produit_show", methods={"GET"})
      */
     public function show(Produit $produit): Response
@@ -107,28 +104,57 @@ class ProduitController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="produit_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Produit $produit): Response
+    public function edit(Request $request, Produit $produit) : Response
     {
         $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('produit_index');
+            $nomFr = $produit->getNom();
+            $nomEN = $this->translate('en', $nomFr);
+            $produit->setNomEn($nomEN);
+            $nomES = $this->translate('ru', $nomFr);
+            $produit->setNomEs($nomES);
+            $nomDE = $this->translate('de', $nomFr);
+            $produit->setNomDe($nomDE);
+            $nomIT = $this->translate('it', $nomFr);
+            $produit->setNomIt($nomIT);
+            
+            $descFr = $produit->getDescription();
+            if($descFr == ''){
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($produit);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('produit_index');
+
+            } else {
+
+                $descEN = $this->translate('en', $descFr);
+                $produit->setDescEn($descEN);
+                $descES = $this->translate('ru', $descFr);
+                $produit->setDescEs($descES);            
+                $descDE = $this->translate('de', $descFr);
+                $produit->setDescDE($descDE);
+                $descIT = $this->translate('it', $descFr);
+                $produit->setDescIT($descIT);
+                $this->getDoctrine()->getManager()->flush();
+
+                return $this->redirectToRoute('produit_index');
         }
-
+    }
         return $this->render('produit/edit.html.twig', [
             'produit' => $produit,
             'form' => $form->createView(),
         ]);
+
     }
 
+
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="produit_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Produit $produit): Response
@@ -141,4 +167,5 @@ class ProduitController extends AbstractController
 
         return $this->redirectToRoute('produit_index');
     }
+
 }

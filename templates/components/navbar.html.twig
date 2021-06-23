@@ -43,12 +43,13 @@
             <div class="flag col-6 "> <a href="/it"><img class="img-fluid mx-auto d-block my-3" style="max-width:100%;" src="{{ asset('/images/flag/it.png' )}}" alt="" srcset=""> </a></div>
         </div>
     </div>
-    <div class="col-12 row mt-5">
-        <div class="d-flex justify-content-around" style="width: 100vw;">
-            {% for onglet in onglets %}
-                <a href="{{path('onglet', {'id': onglet.id})}}" class="btn btn-outline-danger btn-sm">{{onglet.nom}}</a>
-            {% endfor %}
-        </div>  
-    </div>
   </div>
+</div>
+<div class="d-flex justify-content-around mt-5" style="width: 100vw;">
+    {% for onglet in onglets %}
+        <a href="{{path('onglet', {'id': onglet.id})}}" class="btn btn-outline-danger btn-sm">{{onglet.nom}}</a>
+    {% endfor %}
+</div>
+<div class="d-flex justify-content-center mt-3" style="width: 100vw;">
+    <a href="/menu" class="btn btn-outline-danger btn-sm">Menu du Cosmo</a>
 </div>

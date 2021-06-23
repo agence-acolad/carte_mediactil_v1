@@ -7,16 +7,20 @@
         {% include "components/navbar.html_it.twig" %}
     {% endblock %}
 
-<div class="container-fluid mt-5 ">
+<div class="container-fluid mt-3 ">
     <div class="suggestion">
-        <h1 class="text-center mt-3">{{catSuggestion.nomIt}}</h1>
+        <p class="titrecat text-center mt-2">{{catSuggestion.nomIt}}</p>
         {% for p in catSuggestion.produits %}
-            <p><span class="h5 text-uppercase ml-3">{{p.nomIt}}</span></p>
+            <p class="sugg"><span class="h5 text-uppercase ml-3">{{p.nomIt}}</span></p>
         {% endfor %}
     </div>
 
     <div class="starter">
-        <h1 class="text-center mt-4">{{catStarter.nomIt}}</h1>
+            <p class="titrecat text-center mt-2">{{catStarter.nomIt}}</p>
+            <div class="d-flex justify-content-end align-self-end" style="margin-top: -30px;">
+                <p class="mr-2">Ingresso</p>
+                <p class="ml-5">Piano</p>
+            </div>
         <hr class="starterHr">
         {% for p in catStarter.produits %}
             <div class="d-flex justify-content-between">
@@ -25,28 +29,28 @@
                     <p class="ml-1 descid2">{{p.descIt|raw }}</p>
                 </div>
                 <div class="d-flex">
-                    <p class="mr-5 prixStarter">{{p.prixOptionnel}}
+                    <p class="prix mr-5 prixStarter">{{p.prixOptionnel}}
                         {% if p.prixOptionnel == true %}
                             €
                         {% endif %}
                     </p>
-                    <p class="prixStarter">{{p.prix}}€</p>
+                    <p class="prix">{{p.prix}}€</p>
                 </div>
             </div>
         {% endfor %}
     </div>
 
-    <div class="next mt-4">
+    <div class="next mt-2">
         {% for c in catNext|slice(2, 6) %}
         <div class="cartes">
-            <h4 class="titre text-center mt-2">{{c.nomIt}}</h4>
+            <p class="titrecat titre text-center mt-2">{{c.nomIt}}</p>
             <hr class="nextHr">
                 {% for p in c.produits %}
                     <div class="d-flex justify-content-between ">
-                        <p><span class="h4 text-uppercase ml-3 prodNext">{{p.nomIt}}</span></p>
+                        <p><span class="text-uppercase ml-3 prodNext">{{p.nomIt}}</span></p>
                         <p class="prixNext">{{p.prix}}</p>
                     </div>
-                    <p class="mb-4 descNext">{{p.descIt|raw }}</p>
+                    <p class="mb-3 descNext">{{p.descIt|raw }}</p>
                 {% endfor %}
         </div>
         {% endfor %}

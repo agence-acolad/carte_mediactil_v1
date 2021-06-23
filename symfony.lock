@@ -174,6 +174,18 @@
     "stichoza/google-translate-php": {
         "version": "v4.1.4"
     },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "71599f5b0fdeeeec0fb90e9b17c85e6f5e1350c1"
+        },
+        "files": [
+            "public/.htaccess"
+        ]
+    },
     "symfony/asset": {
         "version": "v5.2.3"
     },
@@ -232,7 +244,7 @@
         "version": "v5.2.3"
     },
     "symfony/dotenv": {
-        "version": "v5.2.3"
+        "version": "v5.2.4"
     },
     "symfony/error-handler": {
         "version": "v5.2.3"
@@ -412,6 +424,15 @@
     },
     "symfony/proxy-manager-bridge": {
         "version": "v5.2.3"
+    },
+    "symfony/requirements-checker": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "02c6e4b9b117c39e8a23eab7f3840ef6e62293b9"
+        }
     },
     "symfony/routing": {
         "version": "5.1",

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+    {% block menu %}
+        {% include "components/navbar.html_en.twig" %}
+    {% endblock %}
+
+    <p class="menu-titre">Cosmo's Menues</p>
+        {% for p in catMenus.produits %}
+            <div class="menu d-flex">
+                <p class="prod-menu">{{p.nomEn}}</p>
+                <p class="prod-menu">{{p.prix}}€</p>
+            </div>
+        {% endfor %}
+
+        <div class="mt-5">
+            {% for p in MenuEnt.produits %}
+                <div class="d-flex flex-column align-items-center">
+                    <p class="prod-ent">{{p.nomEn}}</p>
+                    {% if loop.last %}
+                        {% else %}
+                        <span class="ou">or</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <hr class="hr-style-menu">
+        <div class="mt-5">
+            {% for p in MenuPlat.produits %}
+                <div class="d-flex flex-column align-items-center">
+                    <p class="prod-ent">{{p.nomEn}}</p>
+                    {% if loop.last %}
+                        {% else %}
+                        <span class="ou">or</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <hr class="hr-style-menu">
+        <div class="mt-5">
+            {% for p in MenuDess.produits %}
+                <div class="d-flex flex-column align-items-center">
+                    <p class="prod-ent">{{p.nomEn}}</p>
+                    {% if loop.last %}
+                        {% else %}
+                        <span class="ou">or</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+
+
+{% endblock %}

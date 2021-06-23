@@ -15,7 +15,7 @@ class CategorieType extends AbstractType
     {
         $builder
             ->add('nom')
-        ;
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

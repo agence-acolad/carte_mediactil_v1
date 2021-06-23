@@ -1,42 +1,33 @@
 {% extends 'base.html.twig' %}
-{% set uber %}
-    <img src="{{ asset('images/ubereats.png') }}" style="max-width: 30px">
-{% endset %}
-
-{% set deliveroo %}
-    <img src="{{ asset('images/deliveroo.png') }}" style="max-width: 30px">
-{% endset %}
 
 {% block body %}
     {% block menu %}
         {% include "components/navbar.html_ru.twig" %}
     {% endblock %}
-    <div class="mt-5">
+
+    <div class="mt-5 ml-3" data-masonry='{"percentPosition": true }'>
         {% for categorie in ong.ongletcategories %}
-            <div class="col-6 d-flex align-items-stretch justify-content-center">
-                <div class="card text-dark bg-light mb-3 w-100" style="">
-                    <div class="card-header text-uppercase">{{categorie.nomEs}}</div>
-                        <div class="card-body">
-                            {% for produit in categorie.produits %}
-                                <div class="row">  
-                                    <div class="col-8 d-flex">
-                                        <p> <span class="h5 text-uppercase">{{produit.nomEs}}</span></p>
-                                    </div>
-                                    <div class="col-4 d-flex justify-content-end">
-                                        <p>{{ produit.prix }}€</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p style="margin:-15px 0  0 15px; "> {{produit.descEs|raw }}</p>
-                                </div>
-                                {% if loop.last == false  %}
-                                    <hr>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
+    <div class="onglet ml-3">
+        <p class="titrecat2 text-center mt-2">{{categorie.nomEs}}</p>
+        <hr class="ongletHr">
+            {% for produit in categorie.produits %}
+                <div class="d-flex justify-content-between ">
+                    <p><span class="text-uppercase produit">{{produit.nomEs}}</span></p>
+                    <p class="descid3">{{produit.descEs|raw }}</p>
+                    {% if produit.prix == 0 %}
+                        <p class="prix" style="display: none;">
+                    {% endif %}
+                        <p class="prix">{{produit.prix}}</p>
                 </div>
-            </div>
+            {% endfor %}
+    </div>
         {% endfor %}
     </div>
 {% endblock %}
+
+
+                    {# {% if produit.prix == 0 %}
+                        <p class="prix" style="display: none;">
+                    {% else %}
+                        <p class="prix" style="display: block;">{{produit.prix}}</p>
+                    {% endif %} #}

@@ -15,6 +15,10 @@
     {{ include('categorie/_delete_form.html.twig') }}
     </div>
 
-    <a class="btn btn-outline-primary mt-5" href="{{ path('categorie_index') }}">Revenir à la liste des catégories</a>
+    <div class="d-flex justify-content-around" style="width: 100vw;">
+        <a class="btn btn-outline-primary mt-5" href="{{ path('categorie_index') }}">Revenir à la liste des catégories</a>
+        <a class="btn btn-outline-primary mt-5" href="{{ path('administration') }}">Revenir à l'acceuil Administration</a>
+    </div>
+
 
 {% endblock %}
