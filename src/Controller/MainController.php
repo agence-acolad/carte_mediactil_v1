@@ -165,7 +165,9 @@ class MainController extends AbstractController
     */
     public function menuEn(ProduitRepository $repoProduit, CategorieRepository $repoC, OngletRepository $repoO)
     {
+        # prendre
        $onglets = $repoO->findAll();
+        # prendre
        return $this->render('menu/menu.html_en.twig', [
         'catNext' => $repoC->findAll(),
         'produits' => $repoProduit->findAll(),
@@ -173,6 +175,7 @@ class MainController extends AbstractController
         'MenuEnt' => $repoC->findOneBy(['nom' => 'Menu - Entrées']),
         'MenuPlat' => $repoC->findOneBy(['nom' => 'Menu - Plats']),
         'MenuDess' => $repoC->findOneBy(['nom' => 'Menu - Desserts']),
+        # prendre
         'onglets' => $onglets,
        ]);
     }
