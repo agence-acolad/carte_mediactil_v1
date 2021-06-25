@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+
+    {% block menu %}
+        {% include "components/navbar.html_de.twig" %}
+    {% endblock %}
+
+        <div class="row col-12">
+            <div class="col-md-6 p-0">
+                <img style="" src="{{ asset('/images/pdejeuner-de-g.jpg' )}}" alt="carte-nes">
+            </div>
+
+            <div class="col-md-6">
+                <img style="" src="{{ asset('/images/pdejeuner-de-d.jpg' )}}" alt="carte-nes">
+            </div>
+        </div>
+{% endblock %}
