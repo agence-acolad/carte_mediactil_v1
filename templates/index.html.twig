@@ -3,11 +3,12 @@
 {% block title %}Bienvenue{% endblock %}
 
 {% block body %}
+
     {% block menu %}
         {% include "components/navbar.html.twig" %}
     {% endblock %}
 
-<div class="container-fluid mt-3 ">
+<div class="container-fluid mt-3">
     <div class="suggestion">
         <p class="titrecat text-center mt-2">{{catSuggestion.nom}}</p>
         {% for p in catSuggestion.produits %}
@@ -57,4 +58,11 @@
         </div>
         {% endfor %}
     </div>
+    </div>
+    
+
+    {% block footer %}
+        {% include "components/footer.html.twig" %}
+    {% endblock %}
+
 {% endblock %}

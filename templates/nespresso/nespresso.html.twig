@@ -10,12 +10,16 @@
     
         <div class="row col-12">
             <div class="col-md-6 p-0">
-                <img style="" src="{{ asset('/images/nespresso-it-g.jpg' )}}" alt="carte-nes">
+                <img style="" src="{{ asset('/images/nespresso-fr-g.jpg' )}}" alt="carte-nes">
             </div>
 
             <div class="col-md-6">
-                <img style="" src="{{ asset('/images/nespresso-it-d.jpg' )}}" alt="carte-nes">
+                <img style="" src="{{ asset('/images/nespresso-fr-d.jpg' )}}" alt="carte-nes">
             </div>
         </div>
+    
+    {% block footer %}
+        {% include "components/footer.html.twig" %}
+    {% endblock %}
 
 {% endblock %}
