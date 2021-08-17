@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+
+    {% block menu %}
+        {% include "components/navbar.html.twig" %}
+    {% endblock %}
+    
+        <div class="row col-12">
+            <div class="col-md-6 p-0">
+                <img style="" src="{{ asset('/images/nespresso-fr-g.jpg' )}}" alt="carte-nes">
+            </div>
+
+            <div class="col-md-6">
+                <img style="" src="{{ asset('/images/nespresso-fr-d.jpg' )}}" alt="carte-nes">
+            </div>
+        </div>
+    
+    {% block footer %}
+        {% include "components/footer.html.twig" %}
+    {% endblock %}
+
+{% endblock %}
