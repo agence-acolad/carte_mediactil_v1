@@ -51,6 +51,12 @@
     font-family: 'Lobster', cursive;
     font-size: 11px;
 }
+.seaFood {
+    width: 30vw;
+}
+.huitres {
+    width: 30vw;
+}
 
 /* =========================== Cartes x3 ===================== */
 .next {

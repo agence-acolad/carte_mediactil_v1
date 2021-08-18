@@ -36,6 +36,7 @@ class MainController extends AbstractController
             'catSuggestion' => $repoC->findOneBy(['nom' => 'Suggestions']),
             'catStarter' => $repoC->findOneBy(['nom' => 'Entrées / Salade Repas']),
             'onglets' => $onglets,
+            'SeaFood' => $repoC->findOneBy(['nom' => 'Fruits de Mer']),
             ]);
     }
 
